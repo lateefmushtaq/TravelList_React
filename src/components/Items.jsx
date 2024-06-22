@@ -1,16 +1,16 @@
-function Items({ title, description }) {
+import "./component.css";
+function Items({ item, onDeleteItem }) {
   return (
-    <div>
-      <ul>
-        {" "}
+    <>
+      <ul className="li">
         <li>
-          {title}
+          {item.quantity} {item.value}
           <span>
-            <button> {description}❌</button>
+            <button onClick={() => onDeleteItem(item.id)}> ❌</button>
           </span>
         </li>
       </ul>
-    </div>
+    </>
   );
 }
 

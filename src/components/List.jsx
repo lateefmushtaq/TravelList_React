@@ -1,15 +1,13 @@
 import "./component.css";
-
 import Items from "./Items";
-function List() {
+
+function List({ items, onDeleteItem }) {
   return (
-    <>
-      <div className="list">
-        <ul>
-          <Items title="hello" description="bye" />
-        </ul>
-      </div>
-    </>
+    <div className="list">
+      {items.map((item) => (
+        <Items item={item} key={item.id} onDeleteItem={onDeleteItem} />
+      ))}
+    </div>
   );
 }
 

@@ -1,8 +1,8 @@
 import "./component.css";
-function Footer() {
+function Footer({ items }) {
   return (
     <div className="footer">
-      <h1>I am the footer</h1>
+      <h1>You selected {} items</h1>
     </div>
   );
 }

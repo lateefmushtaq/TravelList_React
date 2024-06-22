@@ -1,8 +1,9 @@
 import { useState } from "react";
 import "./component.css";
-function Form() {
+function Form({ onAddItems }) {
   const [value, setValue] = useState("");
   const [quantity, setQuantity] = useState("");
+
   function handleChange(e) {
     setValue(e.target.value);
   }
@@ -12,10 +13,12 @@ function Form() {
   function handleSubmit(e) {
     e.preventDefault();
     if (!value) return;
-    const newItem = { value, quantity, id: Date.now(), packed: false };
+    const newItem = { value, quantity, packed: false, id: Date.now() };
     setValue("");
     setQuantity(1);
+    onAddItems(newItem);
   }
+
   return (
     <>
       <form className="form" onSubmit={handleSubmit}>
